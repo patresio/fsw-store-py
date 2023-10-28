@@ -1,0 +1,50 @@
+[
+    {
+        "model": "home.category",
+        "fields": {
+            "name": "Mouses",
+            "slug": "mouses",
+            "imageUrl": "https://fsw-store.s3.sa-east-1.amazonaws.com/mouses.png"
+        }
+    },
+    {
+        "model": "home.category",
+        "fields": {
+            "name": "Teclados",
+            "slug": "keyboards",
+            "imageUrl": "https://fsw-store.s3.sa-east-1.amazonaws.com/keyboards.png"
+        }
+    },
+    {
+        "model": "home.category",
+        "fields": {
+            "name": "Fones",
+            "slug": "headphones",
+            "imageUrl": "https://fsw-store.s3.sa-east-1.amazonaws.com/headphones.png"
+        }
+    },
+    {
+        "model": "home.category",
+        "fields": {
+            "name": "Mousepads",
+            "slug": "mousepads",
+            "imageUrl": "https://fsw-store.s3.sa-east-1.amazonaws.com/mousepads.png"
+        }
+    },
+    {
+        "model": "home.category",
+        "fields": {
+            "name": "Monitores",
+            "slug": "monitors",
+            "imageUrl": "https://fsw-store.s3.sa-east-1.amazonaws.com/monitors.png"
+        }
+    },
+    {
+        "model": "home.category",
+        "fields": {
+            "name": "Speakers",
+            "slug": "speakers",
+            "imageUrl": "https://fsw-store.s3.sa-east-1.amazonaws.com/speakers.png"
+        }
+    }
+]

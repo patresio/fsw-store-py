@@ -1,0 +1,8 @@
+django
+django-allauth
+django-sslserver
+urllib3==1.26.6
+dj-static
+python-decouple
+django-extensions
+dj-database-url
