@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+from decouple import Csv, config
+from dj_database_url import parse as dburl
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vpg-7n+#me+#k2xomoso7ns3nk4mc(q+$h6rtl7yuk==hz(ec!'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
 
 
 # Application definition
@@ -37,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Thirds APPs
+    'django_extensions',
     # My APPS
     'home.apps.HomeConfig'
 ]
@@ -75,12 +80,29 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    default_dburl = 'sqlite:///' + str(BASE_DIR / 'db.sqlite3')
+    DATABASES = {
+        'default': dburl(default_dburl),  
     }
-}
+else:
+    # Configuração para o mysql planetscale
+    if config('TYPE_DB') == 'mysql':
+        database_url = f"mysql://{config('PLANETSCALE_DB_USERNAME')}:{config('PLANETSCALE_DB_PASSWORD')}@{config('PLANETSCALE_DB_HOST')}/{config('PLANETSCALE_DB')}"
+        DATABASES = {
+            'default': dburl(
+                database_url, conn_max_age=600, ssl_require=True
+            )
+        }
+        DATABASES['default']['OPTIONS']['charset'] = 'utf8mb4'
+        del DATABASES['default']['OPTIONS']['sslmode']
+        DATABASES['default']['OPTIONS']['ssl'] =  {'ca': config('PLANETSCALE_SSL_CERT_PATH')}
+    # configuração para os demais postgres
+    if config('TYPE_DB') == 'psql':
+        database_url = config('DATABASE_URL')
+        DATABASES = {
+            'default': dburl(database_url)
+        }
 
 
 # Password validation
@@ -118,14 +140,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
-STATICFILES_DIRS = [
-    # "/Users/cfe/Dev/django-tailwindcss/src/static",
-    BASE_DIR / "static"
-]
-
+STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR/ "local-cdn" / "static"
+
+MEDIA_URL = 'public/images/'
+MEDIA_ROOT = BASE_DIR / 'public' / 'images'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DEFAULT_FROM_EMAIL = 'rlbp.programas@gmail.com'
+
+# Email Configuration
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_USE_SSL = config('EMAIL_USE_SSL', cast=bool)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')

@@ -1198,11 +1198,6 @@ html{
   margin: 0.25rem;
 }
 
-.mx-auto{
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .mb-1{
   margin-bottom: 0.25rem;
 }
@@ -1352,10 +1347,6 @@ html{
 
 .w-9{
   width: 2.25rem;
-}
-
-.w-full{
-  width: 100%;
 }
 
 .flex-1{
@@ -2407,11 +2398,6 @@ html{
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
-.border-purple-700{
-  --tw-border-opacity: 1;
-  border-color: rgb(108 43 217 / var(--tw-border-opacity));
-}
-
 .bg-\[rgb\(255\2c 0\2c 0\)\]{
   --tw-bg-opacity: 1;
   background-color: rgb(255 0 0 / var(--tw-bg-opacity));
@@ -3182,14 +3168,6 @@ html{
       max-width: 1440px;
     }
   }
-}
-
-.hover\:h-10:hover{
-  height: 2.5rem;
-}
-
-.hover\:w-10:hover{
-  width: 2.5rem;
 }
 
 .hover\:border-gray-300:hover{
