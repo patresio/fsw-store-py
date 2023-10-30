@@ -9,7 +9,7 @@ chars = "abcdefghijklmnopqrstuvwxyz01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!?@#$%_"
 size = 20
 password = "".join(random.sample(chars, size))
 
-CONFIG_STRING = """
+CONFIG_STRING = ("""
 SECRET_KEY=
 DEBUG=True
 ALLOWED_HOSTS=127.0.0.1, *
@@ -41,7 +41,7 @@ DATABASE_URL=
 CLOUD_NAME=
 CLOUD_API_KEY=  
 CLOUD_API_SECRET=
-""".strip() % (secret_key, password)
+""").strip() % (secret_key, password)
 
 # Writing our configuration file to '.env'
 with open('.env', 'w') as configfile:

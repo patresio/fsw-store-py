@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from django.db import models
 from django.shortcuts import resolve_url as r
 from django.template.defaultfilters import slugify
@@ -49,11 +51,11 @@ class Product(models.Model):
     def get_absolute_url(self):
         return r('speaker_detail', slug=self.slug)
     
-    def totalPrice(self):
+    def total_price(self):
         if self.discountPercentage > 0:
-            self.total_price = (self.basePrice - (self.basePrice * (self.discountPercentage/100)))
-        return self.total_price
-
+            self.total_price = (float(self.basePrice) - (float(self.basePrice) * (self.discountPercentage/100)))
+            return Decimal(self.total_price).quantize(Decimal('00000000.00'))
+        return self.basePrice
     
 
 class ImageProduct(models.Model):

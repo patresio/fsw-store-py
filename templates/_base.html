@@ -1,21 +1,27 @@
 <!-- Base HTML -->
-
 {% load static %}
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
+  <meta name="keywords" content="meta">
+  <meta name="description" content="description">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      {% block title %}FSW Store - Django Project E-Commerce{% endblock title %}
+      {% block title %}
+        FSW Store - Django Project E-Commerce
+      {% endblock title %}
     </title>
     {% include "include/_css.html" %}
   </head>
   <body>
     <div class="container p-0 font-['Poppins']">
       {% include "include/_nav.html" %}
-      <div>{% block content %}{% endblock content %}</div>
+      <div>
+        {% block content %}
+        {% endblock content %}
+      </div>
+      {% include "include/_footer.html" %}
       {% include "include/_js.html" %}
     </div>
   </body>
