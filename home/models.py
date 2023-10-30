@@ -1,9 +1,6 @@
-from itertools import product
-from tabnanny import verbose
-from tkinter import CASCADE
-
 from django.db import models
 from django.shortcuts import resolve_url as r
+from django.template.defaultfilters import slugify
 
 
 # Create your models here.
@@ -56,8 +53,10 @@ class Product(models.Model):
         if self.discountPercentage > 0:
             self.total_price = (self.basePrice - (self.basePrice * (self.discountPercentage/100)))
         return self.total_price
+
     
 
 class ImageProduct(models.Model):
     imageUrl = models.TextField('image')
     product = models.ForeignKey('Product', verbose_name='produto', on_delete=models.CASCADE)
+ 
