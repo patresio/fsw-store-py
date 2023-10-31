@@ -1377,6 +1377,10 @@ html{
   height: 2.25rem;
 }
 
+.h-\[11\.5625rem\]{
+  height: 11.5625rem;
+}
+
 .h-auto{
   height: auto;
 }
@@ -1387,30 +1391,6 @@ html{
 
 .h-screen{
   height: 100vh;
-}
-
-.h-\[34\.375rem\]{
-  height: 34.375rem;
-}
-
-.h-\[\]{
-  height: ;
-}
-
-.h-\[11\]{
-  height: 11;
-}
-
-.h-\[11\.\]{
-  height: 11.;
-}
-
-.h-\[11\.5625\]{
-  height: 11.5625;
-}
-
-.h-\[11\.5625rem\]{
-  height: 11.5625rem;
 }
 
 .max-h-\[70\%\]{
@@ -1479,10 +1459,6 @@ html{
 
 .flex-1{
   flex: 1 1 0%;
-}
-
-.flex-\[\]{
-  flex: ;
 }
 
 .flex-shrink{
@@ -1859,16 +1835,16 @@ html{
   grid-auto-flow: column dense;
 }
 
+.grid-cols-3{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .grid-cols-4{
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .grid-cols-7{
   grid-template-columns: repeat(7, minmax(0, 1fr));
-}
-
-.grid-cols-3{
-  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .flex-row{
@@ -2422,6 +2398,11 @@ html{
   border-bottom-left-radius: 0.25rem;
 }
 
+.rounded-b-xl{
+  border-bottom-right-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+}
+
 .rounded-e{
   border-start-end-radius: 0.25rem;
   border-end-end-radius: 0.25rem;
@@ -2460,11 +2441,6 @@ html{
 .rounded-t-xl{
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
-}
-
-.rounded-b-xl{
-  border-bottom-right-radius: 0.75rem;
-  border-bottom-left-radius: 0.75rem;
 }
 
 .rounded-bl{
@@ -2783,10 +2759,6 @@ html{
   padding: 1rem;
 }
 
-.p-\[\]{
-  padding: ;
-}
-
 .px-0{
   padding-left: 0px;
   padding-right: 0px;
@@ -2847,14 +2819,14 @@ html{
   padding-bottom: 0.75rem;
 }
 
-.py-5{
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
 .py-4{
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.py-5{
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .pt-10{
@@ -2948,11 +2920,6 @@ html{
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-xl{
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 
 .font-bold{
