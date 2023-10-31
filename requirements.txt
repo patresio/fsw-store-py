@@ -6,4 +6,9 @@ dj-static
 python-decouple
 django-extensions
 dj-database-url
-djlint==1.34.0
+djlint
+gunicorn
+psycopg2-binary
+sqlparse
+typing_extensions
+asgiref
