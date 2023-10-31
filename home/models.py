@@ -49,7 +49,7 @@ class Product(models.Model):
         return super().save()
     
     def get_absolute_url(self):
-        return r('product', slug=self.slug)
+        return r('categories:product', slug1=self.slug, slug2=self.categoryId.slug )
     
     def total_price(self):
         if self.discountPercentage > 0:

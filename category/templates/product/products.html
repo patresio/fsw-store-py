@@ -1,0 +1,10 @@
+{% extends "_base.html" %}
+{% load filters %}
+{% block title %}
+    {{ product.name }}
+{% endblock title %}
+{% block content %}
+    {% for image in images %}{{ image.imageUrl }}{% endfor %}
+    {{ product.name }}
+    {{ product.basePrice }}
+{% endblock content %}

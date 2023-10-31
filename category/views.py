@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 
-from home.models import Category, Product
+from home.models import Category, ImageProduct, Product
 
 # Create your views here.
 
@@ -17,3 +17,11 @@ def category(request, slug):
         "products": Product.objects.filter(categoryId=category.id).all(),
     }
     return render(request, 'category/category.html', context)
+
+def product(request, slug1, slug2):
+    product = get_object_or_404(Product, slug=slug1)
+    context = {
+        "product": product,
+        "images": ImageProduct.objects.filter(product=product.id).all()
+    }
+    return render(request, 'product/products.html', context)
