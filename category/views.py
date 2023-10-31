@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
-from home.models import Category
+from home.models import Category, Product
 
 # Create your views here.
 
@@ -9,3 +9,11 @@ def catalog(request):
         "categories": Category.objects.all()
         }
     return render(request, 'catalog/catalog.html', context)
+
+def category(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    context = {
+        "category": category,
+        "products": Product.objects.filter(categoryId=category.id).all(),
+    }
+    return render(request, 'category/category.html', context)

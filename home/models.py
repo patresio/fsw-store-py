@@ -24,7 +24,7 @@ class Category(models.Model):
         return super().save()
 
     def get_absolute_url(self):
-        return r('category', slug=self.slug)
+        return r('categories:category', slug=self.slug)
 
 
 class Product(models.Model):

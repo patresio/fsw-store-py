@@ -20,15 +20,17 @@
         <div id="catalog-category"
              class="grid py-0 px-28 grid-cols-3 justify-end items-center gap-10 self-stretch">
             {% for category in categories %}
-                <div id="category-list"
-                     class="flex flex-[1 0 0%] self-stretch items-center flex-col cursor-pointer">
-                    <div class="flex h-[11.5625rem] items-center justify-center self-stretch bg-category-item-gradient rounded-t-xl">
-                        <img src={{ category.imageUrl }} alt={{ category.name }} width=0 height=0 sizes="100vw" class="h-auto max-h-[70%] w-auto max-w-[80%]" />
+                <a href="{{ category.get_absolute_url }}">
+                    <div id="category-list"
+                         class="flex flex-[1 0 0%] self-stretch items-center flex-col cursor-pointer">
+                        <div class="flex h-[11.5625rem] items-center justify-center self-stretch bg-category-item-gradient rounded-t-xl">
+                            <img src={{ category.imageUrl }} alt={{ category.name }} width=0 height=0 sizes="100vw" class="h-auto max-h-[70%] w-auto max-w-[80%]" />
+                        </div>
+                        <div class="w-full bg-accent rounded-b-xl py-4 items-center justify-center flex">
+                            <p class="text-base font-bold">{{ category.name }}</p>
+                        </div>
                     </div>
-                    <div class="w-full bg-accent rounded-b-xl py-4 items-center justify-center flex">
-                        <p class="text-base font-bold">{{ category.name }}</p>
-                    </div>
-                </div>
+                </a>
             {% endfor %}
         </div>
     </div>

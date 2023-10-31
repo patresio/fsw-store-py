@@ -1847,6 +1847,10 @@ html{
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
+.grid-cols-5{
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
 .flex-row{
   flex-direction: row;
 }
@@ -2069,6 +2073,10 @@ html{
 
 .gap-9{
   gap: 2.25rem;
+}
+
+.gap-14{
+  gap: 3.5rem;
 }
 
 .space-x-1 > :not([hidden]) ~ :not([hidden]){
