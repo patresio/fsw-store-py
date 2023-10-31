@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     # Thirds APPs
     'django_extensions',
     # My APPS
-    'home.apps.HomeConfig'
+    'home.apps.HomeConfig',
+    'category.apps.CategoryConfig',
 ]
 
 MIDDLEWARE = [

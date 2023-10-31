@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap");
 
 /*
 ! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com
@@ -1389,6 +1389,30 @@ html{
   height: 100vh;
 }
 
+.h-\[34\.375rem\]{
+  height: 34.375rem;
+}
+
+.h-\[\]{
+  height: ;
+}
+
+.h-\[11\]{
+  height: 11;
+}
+
+.h-\[11\.\]{
+  height: 11.;
+}
+
+.h-\[11\.5625\]{
+  height: 11.5625;
+}
+
+.h-\[11\.5625rem\]{
+  height: 11.5625rem;
+}
+
 .max-h-\[70\%\]{
   max-height: 70%;
 }
@@ -1455,6 +1479,10 @@ html{
 
 .flex-1{
   flex: 1 1 0%;
+}
+
+.flex-\[\]{
+  flex: ;
 }
 
 .flex-shrink{
@@ -1837,6 +1865,10 @@ html{
 
 .grid-cols-7{
   grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-cols-3{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .flex-row{
@@ -2425,6 +2457,16 @@ html{
   border-top-right-radius: 0.25rem;
 }
 
+.rounded-t-xl{
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.rounded-b-xl{
+  border-bottom-right-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+}
+
 .rounded-bl{
   border-bottom-left-radius: 0.25rem;
 }
@@ -2607,6 +2649,10 @@ html{
   --tw-bg-opacity: 0.5;
 }
 
+.bg-category-item-gradient{
+  background-image: linear-gradient(45deg, #5033C3 0%, rgba(80, 51, 195, 0.20) 100%);;
+}
+
 .decoration-slice{
   -webkit-box-decoration-break: slice;
           box-decoration-break: slice;
@@ -2737,6 +2783,10 @@ html{
   padding: 1rem;
 }
 
+.p-\[\]{
+  padding: ;
+}
+
 .px-0{
   padding-left: 0px;
   padding-right: 0px;
@@ -2800,6 +2850,11 @@ html{
 .py-5{
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.py-4{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .pt-10{
@@ -2893,6 +2948,11 @@ html{
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold{
@@ -3451,10 +3511,6 @@ html{
 
 .hover\:text-primary:hover{
   color: hsl(var(--primary));
-}
-
-.hover\:opacity-60:hover{
-  opacity: 0.6;
 }
 
 .before\:hover\:text-center:hover::before{

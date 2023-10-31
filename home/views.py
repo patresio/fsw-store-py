@@ -13,9 +13,3 @@ def index(request):
         "mouses": Product.objects.filter(categoryId=1)
         }
     return render(request, 'index.html', context)
-
-def category(request):
-    context ={
-        "categories": Category.objects.all(),
-    }
-    return render(request, 'category/categories.html', context)

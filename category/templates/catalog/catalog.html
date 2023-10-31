@@ -1,0 +1,35 @@
+{% extends "_base.html" %}
+{% block title %}
+    FSW Store - Categorias
+{% endblock title %}
+{% block content %}
+    <div class="flex py-10 px-0 flex-col items-center gap-10 self-stretch">
+        <div class="flex py-0 px-28 items-center gap-3 self-stretch">
+            <div class="flex py-3 px-4 justify-center gap-2 border-2 border-primary rounded-full items-center"
+                 id="badge-name">
+                <svg class="w-4 h-4 text-white"
+                     aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg"
+                     fill="currentColor"
+                     viewBox="0 0 18 18">
+                    <path d="M6.143 0H1.857A1.857 1.857 0 0 0 0 1.857v4.286C0 7.169.831 8 1.857 8h4.286A1.857 1.857 0 0 0 8 6.143V1.857A1.857 1.857 0 0 0 6.143 0Zm10 0h-4.286A1.857 1.857 0 0 0 10 1.857v4.286C10 7.169 10.831 8 11.857 8h4.286A1.857 1.857 0 0 0 18 6.143V1.857A1.857 1.857 0 0 0 16.143 0Zm-10 10H1.857A1.857 1.857 0 0 0 0 11.857v4.286C0 17.169.831 18 1.857 18h4.286A1.857 1.857 0 0 0 8 16.143v-4.286A1.857 1.857 0 0 0 6.143 10Zm10 0h-4.286A1.857 1.857 0 0 0 10 11.857v4.286c0 1.026.831 1.857 1.857 1.857h4.286A1.857 1.857 0 0 0 18 16.143v-4.286A1.857 1.857 0 0 0 16.143 10Z" />
+                </svg>
+                <h2 class="font-bold text-lg uppercase">Catálogo</h2>
+            </div>
+        </div>
+        <div id="catalog-category"
+             class="grid py-0 px-28 grid-cols-3 justify-end items-center gap-10 self-stretch">
+            {% for category in categories %}
+                <div id="category-list"
+                     class="flex flex-[1 0 0%] self-stretch items-center flex-col cursor-pointer">
+                    <div class="flex h-[11.5625rem] items-center justify-center self-stretch bg-category-item-gradient rounded-t-xl">
+                        <img src={{ category.imageUrl }} alt={{ category.name }} width=0 height=0 sizes="100vw" class="h-auto max-h-[70%] w-auto max-w-[80%]" />
+                    </div>
+                    <div class="w-full bg-accent rounded-b-xl py-4 items-center justify-center flex">
+                        <p class="text-xl">{{ category.name }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
