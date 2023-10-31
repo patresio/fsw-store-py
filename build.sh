@@ -27,5 +27,5 @@ npm i @vercel/analytics
 npm install
 
 # Carrega Keynotes
-python manage.py loaddata category.json
-python manage.py loaddata products.json
+#python manage.py loaddata category.json
+#python manage.py loaddata products.json
