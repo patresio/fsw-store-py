@@ -145,7 +145,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT = BASE_DIR/ "local-cdn" / "static"
+STATIC_ROOT = BASE_DIR/ "staticfiles" / "static"
 
 MEDIA_URL = 'public/images/'
 MEDIA_ROOT = BASE_DIR / 'public' / 'images'
