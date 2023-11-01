@@ -4,7 +4,14 @@
     {{ product.name }}
 {% endblock title %}
 {% block content %}
-    {% for image in images %}{{ image.imageUrl }}{% endfor %}
-    {{ product.name }}
-    {{ product.basePrice }}
+    <div class="flex py-10 px-28 gap-8 self-stretch h-[46.875rem]">
+        <div class="bg-accent w-[46rem] self-stretch rounded-md relative items-center justify-center flex gap-3">
+            <img src="{{ product|get_first_image }}"
+                 alt="{{ product.name }}"
+                 width="0"
+                 height="0"
+                 sizes="100vw"
+                 class="max-w-auto max-h-auto w-auto h-auto object-contain" />
+        </div>
+    </div>
 {% endblock content %}

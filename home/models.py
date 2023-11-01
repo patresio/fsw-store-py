@@ -41,7 +41,7 @@ class Product(models.Model):
         verbose_name_plural='produtos'
 
     def __str__(self):
-        self.name
+        return self.name
     
     def save(self, *args, **kwargs):
         if not self.slug:

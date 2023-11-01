@@ -2,7 +2,7 @@ from atexit import register
 
 from django import template
 
-from home.models import Category, ImageProduct, Product
+from home.models import ImageProduct
 
 register = template.Library()
 
@@ -14,9 +14,3 @@ def get_first_image(product):
     else:
         return False
     
-
-@register.filter(name='get_category')
-def get_category(products, category):
-    categoryId = Category.objects.filter(slug=category)
-    if products := Product.objects.filter(categoryId=categoryId):
-        return products

@@ -208,28 +208,28 @@
     {
         "model": "home.imageproduct",
         "fields": {
-            "imageUrl": "https://fsw-store.s3.sa-east-1.amazonaws.com/01_logi-mx-keys-mini.png",
+            "imageUrl": "https://i.imgur.com/vmMdRSa.png",
             "product": "6"
         }
     },
     {
         "model": "home.imageproduct",
         "fields": {
-            "imageUrl": "https://fsw-store.s3.sa-east-1.amazonaws.com/02_logi-mx-keys-mini.png",
+            "imageUrl": "https://i.imgur.com/9TA0obb.png",
             "product": "6"
         }
     },
     {
         "model": "home.imageproduct",
         "fields": {
-            "imageUrl": "https://fsw-store.s3.sa-east-1.amazonaws.com/03_logi-mx-keys-mini.png",
+            "imageUrl": "https://i.imgur.com/q6CFl6h.png",
             "product": "6"
         }
     },
     {
         "model": "home.imageproduct",
         "fields": {
-            "imageUrl": "https://fsw-store.s3.sa-east-1.amazonaws.com/04_logi-mx-keys-mini.png",
+            "imageUrl": "https://i.imgur.com/hzJiRiY.png",
             "product": "6"
         }
     },

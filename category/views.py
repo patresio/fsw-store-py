@@ -25,3 +25,9 @@ def product(request, slug1, slug2):
         "images": ImageProduct.objects.filter(product=product.id).all()
     }
     return render(request, 'product/products.html', context)
+
+def offers(request):
+    context = {
+            "products": Product.objects.all()
+        }
+    return render(request, 'offers/offers.html', context)
