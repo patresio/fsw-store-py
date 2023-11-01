@@ -5,75 +5,45 @@
 {% endblock title %}
 {% block content %}
     <div class="flex py-10 px-28 gap-8 self-stretch h-[46.875rem]">
-        <div class="bg-accent w-[58%] max-w-full self-stretch rounded-md relative flex gap-3 justify-start"
-             id="div-images-products">
-            <div class="w-full h-full flex justify-center items-center">
-                <img src="{{ product|get_first_image }}"
-                     alt="{{ product.name }}"
-                     width="0"
-                     height="0"
-                     sizes="100vw"
-                     class="max-w-auto max-h-auto w-[80%] h-[80%] object-contain" />
+        {% include "../product/include/imageproduct.html" %}
+        <div class="p-10 flex flex-col justify-between items-center self-stretch flex-[1 0 0%] bg-accent rounded-md w-[38%] gap-3">
+            {% include "../product/include/productinfo.html" %}
+            {% include "../product/include/pricequantity.html" %}
+            <!-- DESCRIPTIONS  -->
+            <div id="description" class="gap-2 flex flex-col items-start self-stretch">
+                <h2 class="text-xl font-bold">Descrição</h2>
+                <p class="text-xs">{{ product.description }}</p>
             </div>
-            <div class="absolute inline-flex flex-col items-start gap-4 mt-5 ml-5">
-                {% for image in images %}
-                    <div class="bg-black h-20 w-20 rounded-xl border-1 border-primary shrink-0 opacity-60 hover:opacity-100 justify-center flex items-center">
-                        <img src="{{ image.imageUrl }}"
-                             alt="{{ product.name }}"
-                             width="0"
-                             height="0"
-                             sizes="100vw"
-                             class="max-w-auto max-h-auto w-[65%] h-[65%] object-contain" />
+            <!-- BUTTON BANNER  -->
+            <div id="button-banner"
+                 class="flex flex-col items-center gap-4 self-stretch w-full">
+                <div id="button-add"
+                     class="bg-primary rounded-xl w-full gap-2 flex py-2 px-0 items-center justify-center self-stretch hover:bg-purple-500">
+                    {% comment %} #TODO: Adicionar função para adicionar ao carrinho {% endcomment %}
+                    <h2 class="uppercase font-bold">Adicionar ao carrinho</h2>
+                </div>
+                <div id="banner-packet"
+                     class="flex py-2 px-6 justify-between items-center self-stretch bg-[#2a2a2a] rounded-lg">
+                    {% comment %} #TODO: API melhor envio! {% endcomment %}
+                    <div id="content-banner-packet"
+                         class="flex h-11 justify-center items-center gap-3">
+                        <svg class="w-4 h-4 text-white"
+                             aria-hidden="true"
+                             xmlns="http://www.w3.org/2000/svg"
+                             fill="currentColor"
+                             viewBox="0 0 20 16">
+                            <path d="M19.9 6.58c0-.009 0-.019-.006-.027l-2-4A1 1 0 0 0 17 2h-4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v9a1 1 0 0 0 1 1h.3c-.03.165-.047.332-.051.5a3.25 3.25 0 1 0 6.5 0A3.173 3.173 0 0 0 7.7 12h4.6c-.03.165-.047.332-.051.5a3.25 3.25 0 1 0 6.5 0 3.177 3.177 0 0 0-.049-.5h.3a1 1 0 0 0 1-1V7a.99.99 0 0 0-.1-.42ZM16.382 4l1 2H13V4h3.382ZM4.5 13.75a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Zm11 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Z" />
+                        </svg>
+                        <div class="flex flex-col items-start gap-1">
+                            <p class="text-base">
+                                Entrega via <span class="font-bold italic">FSPacket®</span>
+                            </p>
+                            <p class="text-sm text-purple-600">
+                                Envio para <span class="font-bold">todo Brasil</span>
+                            </p>
+                        </div>
                     </div>
-                {% endfor %}
-            </div>
-        </div>
-        <div class="p-10 flex flex-col justify-between items-center self-stretch flex-[1 0 0%] bg-accent rounded-md w-[42%]">
-            <div id="product-info"
-                 class="gap-2 flex flex-col items-start self-stretch">
-                {% comment %} #TODO: Fazer banco de dados com estoque {% endcomment %}
-                <p class="text-sm font-normal text-gray-500">Novo | 100 vendidos</p>
-                <h2 class="text-2xl">{{ product.name }}</h2>
-                <p class="text-sm font-normal text-primary">Disponível em estoque</p>
-                <div id="rating" class="flex justify-start gap-4">
-                    <div class="flex items-center space-x-1">
-                        <svg class="w-4 h-4 text-primary"
-                             aria-hidden="true"
-                             xmlns="http://www.w3.org/2000/svg"
-                             fill="currentColor"
-                             viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <svg class="w-4 h-4 text-primary"
-                             aria-hidden="true"
-                             xmlns="http://www.w3.org/2000/svg"
-                             fill="currentColor"
-                             viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <svg class="w-4 h-4 text-primary"
-                             aria-hidden="true"
-                             xmlns="http://www.w3.org/2000/svg"
-                             fill="currentColor"
-                             viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <svg class="w-4 h-4 text-primary"
-                             aria-hidden="true"
-                             xmlns="http://www.w3.org/2000/svg"
-                             fill="currentColor"
-                             viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <svg class="w-4 h-4 text-gray-300 dark:text-gray-500"
-                             aria-hidden="true"
-                             xmlns="http://www.w3.org/2000/svg"
-                             fill="currentColor"
-                             viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                    </div>
-                    <p class="text-sm opacity-30">(25)</p>
+                    <p class="text-xs font-bold">Frete Grátis</p>
                 </div>
             </div>
         </div>

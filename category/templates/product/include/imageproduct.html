@@ -1,0 +1,24 @@
+{% load filters %}
+<div class="bg-accent w-[62%] max-w-full self-stretch rounded-md relative flex gap-3 justify-start"
+     id="div-images-products">
+    <div class="w-full h-full flex justify-center items-center">
+        <img src="{{ product|get_first_image }}"
+             alt="{{ product.name }}"
+             width="0"
+             height="0"
+             sizes="100vw"
+             class="max-w-auto max-h-auto w-[80%] h-[80%] object-contain" />
+    </div>
+    <div class="absolute inline-flex flex-col items-start gap-4 mt-5 ml-5">
+        {% for image in images %}
+            <div class="bg-black h-20 w-20 rounded-xl border-1 border-primary shrink-0 opacity-60 hover:opacity-100 justify-center flex items-center">
+                <img src="{{ image.imageUrl }}"
+                     alt="{{ product.name }}"
+                     width="0"
+                     height="0"
+                     sizes="100vw"
+                     class="max-w-auto max-h-auto w-[65%] h-[65%] object-contain" />
+            </div>
+        {% endfor %}
+    </div>
+</div>
